@@ -1,4 +1,3 @@
-package com.ibm.sample.jazzbot.app;
 
 import java.io.IOException;
 import java.io.PrintWriter;
