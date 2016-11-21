@@ -19,10 +19,10 @@ public class SMS extends HttpServlet {
 	private static final long serialVersionUID = 1L;   
 	
 	private String parameters = "{"
-			+ "\"sid\":\"AC84e49acd218452ef869aa44b7ddb316e\","
-			+ "\"authToken\":\"f7d66a3ab7aa59bc84af694828861df4\","
-			+ "\"toNumber\":\"+17045267752\","
-			+ "\"fromNumber\":\"+19804306890\","
+			+ "\"sid\":\"\","
+			+ "\"authToken\":\"\","
+			+ "\"toNumber\":\"\","
+			+ "\"fromNumber\":\"\","
 			+ "\"text\":\"hello my friend\""
 			+ "}";
     
