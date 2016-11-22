@@ -15,31 +15,31 @@ import com.google.gson.JsonObject;
 @WebServlet("/set")
 public class Set extends HttpServlet {
 	
+	private static final String SID = "sid";
+	private static final String AUTH_TOKEN = "authtoken";
+	private static final String TO_NUMBER = "totumber";
+	private static final String FROM_NUMBER = "fromnumber";
 	private static final long serialVersionUID = 1L;
     protected static Map<String, JsonObject> settingMap = new HashMap<String, JsonObject>();
 
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String sessionId = request.getParameter("sessionId");
-		
-		String sid = request.getParameter("sid");
-		String fromNumber = request.getParameter("fromNumber");
-		String toNumber = request.getParameter("toNumber");
-		String authToken = request.getParameter("authToken");
-
+		String sessionId = request.getParameter("sessionId");		
+		String sid = request.getParameter(SID);
+		String authtoken = request.getParameter(AUTH_TOKEN);
+		String tonumber = request.getParameter(TO_NUMBER);
+		String fromnumber = request.getParameter(FROM_NUMBER);
 		
 		JsonObject configCred = settingMap.get(sessionId) == null?new JsonObject():settingMap.get(sessionId);
 		
 		if(sid != null)
-			configCred.addProperty("sid", sid);
-		if(authToken != null)
-			configCred.addProperty("authToken", authToken);
-		if(fromNumber != null)
-			configCred.addProperty("fromNumber", fromNumber);
-		if(toNumber != null)
-			configCred.addProperty("toNumber", toNumber);
+			configCred.addProperty(SID, sid);
+		if(authtoken != null)
+			configCred.addProperty(AUTH_TOKEN, authtoken);
+		if(fromnumber != null)
+			configCred.addProperty(FROM_NUMBER, fromnumber);
+		if(tonumber != null)
+			configCred.addProperty(TO_NUMBER, tonumber);
 
 		settingMap.put(sessionId, configCred);
 		String output = "SET operation successful";		

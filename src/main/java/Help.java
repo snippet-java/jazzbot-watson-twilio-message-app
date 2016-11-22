@@ -20,9 +20,9 @@ public class Help extends HttpServlet {
 		JsonArray output = new JsonArray();
 		
 		output.add("set sid <SID> - set sid for Twilio service");
-		output.add("set authToken <AUTHTOKEN> - set authToken for Twilio");
-		output.add("set toNumber <TO_NUMBER> - set toNumber with country code");
-		output.add("set fromNumber <FROM_NUMBER> - set fromNumber with country code");
+		output.add("set authtoken <AUTHTOKEN> - set authToken for Twilio");
+		output.add("set tonumber <TO_NUMBER> - set toNumber with country code");
+		output.add("set fromnumber <FROM_NUMBER> - set fromNumber with country code");
 	
 		
 		output.add("sms <BODY_OF_SMS> - The SMS will be send with this body to the mentioned toNUmber");

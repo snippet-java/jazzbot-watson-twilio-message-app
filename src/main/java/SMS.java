@@ -16,33 +16,42 @@ import com.twilio.type.PhoneNumber;
 
 @WebServlet("/sms")
 public class SMS extends HttpServlet {
+	
+	
+	private static final String SID = "sid";
+	private static final String AUTH_TOKEN = "authtoken";
+	private static final String TO_NUMBER = "tonumber";
+	private static final String FROM_NUMBER = "fromnumber";
+	
 	private static final long serialVersionUID = 1L;   
 	
+	
 	private String parameters = "{"
-			+ "\"sid\":\"\","
-			+ "\"authToken\":\"\","
-			+ "\"toNumber\":\"\","
-			+ "\"fromNumber\":\"\","
+			+ "\""+SID+"\":\"\","
+			+ "\""+AUTH_TOKEN+"\":\"\","
+			+ "\""+TO_NUMBER+"\":\"\","
+			+ "\""+FROM_NUMBER+"\":\"\","
 			+ "\"text\":\"hello my friend\""
 			+ "}";
     
 	 public static void main(String[] args) {
 		 SMS sms = new SMS();
 		 JsonObject params = new JsonParser().parse(sms.parameters).getAsJsonObject();
-		 System.out.println(sms.process(params, params.get("text").getAsString()));
+		 String result = sms.process(params, params.get("text").getAsString());
+		 System.out.println(result);
 	 }
 
 	private String process(JsonObject credConfig, String text) {
 		String output = "";				
 		try {
-			String sid = credConfig.get("sid").getAsString();
-			String authToken = credConfig.get("authToken").getAsString();
-			String fromNumber = credConfig.get("fromNumber").getAsString();
-			String toNumber = credConfig.get("toNumber").getAsString();
-			Twilio.init(sid,authToken);
+			String sid = credConfig.get(SID).getAsString();
+			String authtoken = credConfig.get(AUTH_TOKEN).getAsString();
+			String fromnumber = credConfig.get(FROM_NUMBER).getAsString();
+			String tonumber = credConfig.get(TO_NUMBER).getAsString();
+			Twilio.init(sid,authtoken);
 		    Message message = Message.creator(
-		    		new PhoneNumber(toNumber),
-		    		new PhoneNumber(fromNumber),text).create();		    
+		    		new PhoneNumber(tonumber),
+		    		new PhoneNumber(fromnumber),text).create();		    
 			output = message.getSid();				
 		}catch (Exception e) {
 			output = e.getMessage();
