@@ -26,13 +26,13 @@ public class SMS extends HttpServlet {
 	private static final long serialVersionUID = 1L;   
 	
 	
-	private String parameters = "{"
-			+ "\""+SID+"\":\"\","
-			+ "\""+AUTH_TOKEN+"\":\"\","
-			+ "\""+TO_NUMBER+"\":\"\","
-			+ "\""+FROM_NUMBER+"\":\"\","
-			+ "\"text\":\"hello my friend\""
-			+ "}";
+ private String parameters = "{"
+            + "\""+SID+"\":\"AC84e49acd218452ef869aa44b7ddb316e\","
+            + "\""+AUTH_TOKEN+"\":\"f7d66a3ab7aa59bc84af694828861df4\","
+            + "\""+TO_NUMBER+"\":\"+17045267752\","
+            + "\""+FROM_NUMBER+"\":\"+19804306890\","
+            + "\"text\":\"hello my friend\""
+            + "}";
     
 	 public static void main(String[] args) {
 		 SMS sms = new SMS();

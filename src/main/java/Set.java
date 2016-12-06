@@ -17,7 +17,7 @@ public class Set extends HttpServlet {
 	
 	private static final String SID = "sid";
 	private static final String AUTH_TOKEN = "authtoken";
-	private static final String TO_NUMBER = "totumber";
+	private static final String TO_NUMBER = "tonumber";
 	private static final String FROM_NUMBER = "fromnumber";
 	private static final long serialVersionUID = 1L;
     protected static Map<String, JsonObject> settingMap = new HashMap<String, JsonObject>();
